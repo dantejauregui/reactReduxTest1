@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-//import { composeWithDevTools } from 'redux-devtools-extension';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './components/App';
 
@@ -14,8 +19,8 @@ import './index.css';
 //const store = createStore(reducers);
 
 ReactDOM.render(
-	<Provider store={createStore(reducers)}>
-  	<App />
+	<Provider store={createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+  		<App />
 	</Provider>,
   document.getElementById('root')
 );

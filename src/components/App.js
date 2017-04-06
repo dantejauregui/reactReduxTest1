@@ -20,6 +20,7 @@ class App extends Component {
         </div>
         
         <div className="App-body">
+          <input type="text" />
           <button onClick={this.onClicking.bind(this)}>Holaa</button>
           <p>{this.props.term}</p>
         </div>
