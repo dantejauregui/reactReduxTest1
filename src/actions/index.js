@@ -4,3 +4,14 @@ export const rendering = () => {
     payload: null
   };
 };
+
+
+export const oliver = (term) => {
+
+  console.log(term);
+  
+  return {
+    type: 'OLIVER',
+    payload: term
+  };
+};

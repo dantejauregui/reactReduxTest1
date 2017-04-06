@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { rendering } from '../actions/index';
+import { rendering, oliver } from '../actions/index';
 import {  connect } from 'react-redux';
 
 import './App.css';
 
 class App extends Component {
   
-  onClicking() {
-    this.props.rendering();
+  // onClicking() {
+  //   this.props.rendering();
+  // }
+
+  toGreetChanged(event) {
+
+    //aqui se ejecuta la funcion Oliver, por lo que se da el argumento especifico:
+    this.props.oliver(event.target.value);
   }
 
 
@@ -20,9 +26,9 @@ class App extends Component {
         </div>
         
         <div className="App-body">
-          <input type="text" />
-          <button onClick={this.onClicking.bind(this)}>Holaa</button>
-          <p>{this.props.term}</p>
+          <input type="text" onChange={this.toGreetChanged.bind(this)} />
+          
+          <p>{this.props.term2}</p>
         </div>
       </div>
     );
@@ -32,8 +38,11 @@ class App extends Component {
 
 function mapStateToProps(state) {
   //notar que este state que se esta generando se debe inyectar como PROPS:
-  return {term: state.term}
+  return {
+    term: state.term,
+    term2: state.term2
+  };
 }
 
-export default connect(mapStateToProps, {rendering})(App);
+export default connect(mapStateToProps, {rendering, oliver})(App);
 
