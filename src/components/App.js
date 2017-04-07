@@ -6,9 +6,9 @@ import './App.css';
 
 class App extends Component {
   
-  // onClicking() {
-  //   this.props.rendering();
-  // }
+  onClicking() {
+    this.props.rendering();
+  }
 
   toGreetChanged(event) {
 
@@ -27,7 +27,7 @@ class App extends Component {
         
         <div className="App-body">
           <input type="text" onChange={this.toGreetChanged.bind(this)} />
-          
+          <button onClick={this.onClicking.bind(this)}>Holaa</button>
           <p>{this.props.term2}</p>
         </div>
       </div>
